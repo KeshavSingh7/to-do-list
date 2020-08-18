@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(120deg, #4158D0 0%, #C850C0 50%, #FFCC70 100%) fixed;
+  background-size: cover;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+h1 {
+  text-decoration: underline;
+  font-weight: bold;
+  height: 1.5rem;
+}
+
+h1, form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input, form button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: none;
+  background: white;
+}
+
+form button {
+  color: teal;
+}
+
+form button:hover {
+  color: white;
+  background: teal;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:focus, button:active, form input:focus, form input:active{
+  outline: none;
+  border: none;
+}
+
+.to-do-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+}
+
+.to-do-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.to-do {
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.to-do li {
+  flex: 1;
+}
+
+.complete-btn, .delete-btn {
+  padding: 1rem;
+  border: none;
+  font-size: 1rem;
+  color: white;
+}
+
+.complete-btn {
+  background: rgba(73, 204, 73);
+}
+
+.delete-btn {
+  background: rgba(255,0,0);
+}
+
+.to-do-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-check, .fa-trash {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translatex(25rem);
+  opacity: 0;
+}
