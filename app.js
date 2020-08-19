@@ -1,9 +1,11 @@
 const a = document.getElementsByClassName("to-do-input")[0];
 const b = document.getElementsByClassName("to-do-button")[0];
 const c = document.getElementsByClassName("to-do-list")[0];
+const i = document.getElementsByClassName("filter")[0];
 
 b.addEventListener('click', addToDo);
 c.addEventListener('click', completeDelete);
+i.addEventListener('click', filterToDo);
 
 function addToDo(event) {
     event.preventDefault();
@@ -32,14 +34,39 @@ function addToDo(event) {
 }
 
 function completeDelete(ev) {
-    const item = ev.target;
-    if(item.getAttribute("class") === "delete-btn") {
-        item.parentElement.classList.add('fall');
-        item.parentElement.addEventListener("transitionend", ()=> {
-            item.parentElement.remove();
+    const h = ev.target;
+    if(h.getAttribute("class") === "delete-btn") {
+        h.parentElement.classList.add('fall');
+        h.parentElement.addEventListener("transitionend", ()=> {
+            h.parentElement.remove();
         });
     }   
 
-    if(item.getAttribute("class") === "complete-btn")
-        item.parentElement.classList.toggle("completed");
+    if(h.getAttribute("class") === "complete-btn")
+        h.parentElement.classList.toggle("completed");
+}
+
+function filterToDo(e) {
+    const j = c.children;
+    
+    for(var i = 0; i < j.length; i++)
+    {
+        switch(e.target.value) {
+            case "all":
+                j[i].style.display = "flex";
+                break;
+            case "completed":
+                if(j[i].classList.contains("completed"))
+                    j[i].style.display = "flex";
+                else
+                    j[i].style.display = "none";
+                break;
+            case "uncompleted":
+                if(j[i].classList.contains("completed"))
+                    j[i].style.display = "none";
+                else
+                    j[i].style.display = "flex";
+                break;
+        }
+    }
 }
