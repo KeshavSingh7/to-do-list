@@ -10,27 +10,33 @@ i.addEventListener('click', filterToDo);
 function addToDo(event) {
     event.preventDefault();
 
-    const d = document.createElement("div");
-    d.setAttribute("class","to-do");
+    if(a.value === "") {
+        alert('To do task is empty. Please add a task as input.')
+    }
 
-    const e = document.createElement("li");
-    e.innerText = a.value;
-    e.setAttribute("class","to-do-item");
-    d.appendChild(e);
+    else {
+        const d = document.createElement("div");
+        d.setAttribute("class","to-do");
 
-    const f = document.createElement("button");
-    f.innerHTML = '<i class="fas fa-check"></i>';
-    f.setAttribute("class","complete-btn");
-    d.appendChild(f);
+        const e = document.createElement("li");
+        e.innerText = a.value;
+        e.setAttribute("class","to-do-item");
+        d.appendChild(e);
 
-    const g = document.createElement("button");
-    g.innerHTML = '<i class="fas fa-trash"></i>';
-    g.setAttribute("class","delete-btn");
-    d.appendChild(g);
+        const f = document.createElement("button");
+        f.innerHTML = '<i class="fas fa-check"></i>';
+        f.setAttribute("class","complete-btn");
+        d.appendChild(f);
 
-    c.appendChild(d);
+        const g = document.createElement("button");
+        g.innerHTML = '<i class="fas fa-trash"></i>';
+        g.setAttribute("class","delete-btn");
+        d.appendChild(g);
 
-    a.value = "";
+        c.appendChild(d);
+
+        a.value = "";
+    }
 }
 
 function completeDelete(ev) {
